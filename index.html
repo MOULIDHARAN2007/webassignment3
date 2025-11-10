@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurniCo. | Luxury Home Furnishings</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* THEME PALETTE: 
+            Primary Text/Background: #1C2833 (Deep Navy/Black)
+            Accent/CTA: #C2993D (Soft Gold/Brown)
+            Background: #FAF9F6 (Creamy White) 
+        */
+
+        /* General Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            background-color: #FAF9F6; /* Creamy White Background */
+            color: #1C2833; /* Deep Navy Text */
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Elegant Serif Font for Headings */
+            color: #1C2833;
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            background: #FAF9F6;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05); /* Softer Shadow */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: 700;
+            color: #C2993D; /* Gold Accent */
+            letter-spacing: 2px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1C2833;
+            margin-left: 35px;
+            font-weight: 400;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .main-nav a:hover {
+            color: #C2993D;
+        }
+
+        .user-actions button, .user-actions a {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 20px;
+            padding: 8px 15px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #1C2833;
+            border-radius: 4px;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+
+        .user-actions button:hover {
+            color: #C2993D;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            /* Using a high-quality placeholder image for visual appeal */
+            background: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: #FAF9F6;
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 50px;
+            height: 450px; /* Consistent height */
+        }
+
+        .hero-section h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+            color: #FAF9F6;
+        }
+
+        .hero-section p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #C2993D; /* Gold Accent */
+            color: #1C2833;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #1C2833;
+            color: #FAF9F6;
+        }
+
+        /* --- Product Section --- */
+        .product-section {
+            padding: 20px 80px 80px;
+        }
+
+        .product-section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5em;
+            color: #1C2833;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Lighter, subtle shadow */
+            transition: transform 0.3s;
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.5em;
+            margin: 5px 0 10px;
+        }
+
+        .product-card .price {
+            font-size: 1.6em;
+            color: #C2993D; /* Gold Price */
+            font-weight: 700;
+            margin: 15px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .product-card .description {
+            color: #555;
+            padding: 0 20px 20px;
+            font-size: 0.95em;
+            font-weight: 300;
+        }
+
+        .add-to-cart {
+            background-color: #1C2833;
+            color: #FAF9F6;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart:hover {
+            background-color: #C2993D;
+            color: #1C2833;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1C2833;
+            color: #FAF9F6;
+            margin-top: 50px;
+        }
+
+        /* --- Modal Styles (Login/Register/Cart) --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6); 
+        }
+
+        .modal-content {
+            background-color: #FAF9F6;
+            margin: 8% auto; 
+            padding: 40px;
+            border: 1px solid #ddd;
+            width: 90%;
+            max-width: 450px; 
+            border-radius: 4px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 30px;
+            font-weight: 300;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #1C2833;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 25px;
+            color: #C2993D;
+            font-size: 2em;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .modal-content .cta-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* --- Styles for Cart Modal Items --- */
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-row:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-name {
+            font-weight: 400;
+            color: #1C2833;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: #C2993D;
+        }
+
+        .cart-summary {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            text-align: right;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .cart-summary .cta-button {
+            margin-top: 15px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">FurniCo.</div>
+        <nav class="main-nav">
+            <a href="#products">Shop</a>
+            <a href="#">Collections</a>
+            <a href="#">Journal</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="user-actions">
+            <button onclick="openCartModal()">🛒 Cart (<span id="cart-count">0</span>)</button>
+            <button onclick="document.getElementById('login-modal').style.display='block'">Account</button>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <h1>Timeless Design. Modern Living.</h1>
+        <p>Explore our curated selection of handcrafted pieces for your home.</p>
+        <a href="#products" class="cta-button">Shop The Collection</a>
+    </section>
+
+    <section id="products" class="product-section">
+        <h2>Our Featured Designs</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="image1.jpg" alt="Modern Grey Sofa">
+                <h3>The Cloud Sofa</h3>
+                <p class="price">$1,299.00</p>
+                <p class="description">Luxurious comfort with a minimalist, deep-seating design.</p>
+                <button class="add-to-cart" data-name="Cloud Sofa" data-price="1299.00">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="image2.jpg" alt="Classic Velvet Armchair">
+                <h3>Classic Velvet Armchair</h3>
+                <p class="price">$450.00</p>
+                <p class="description">Rich velvet finish, perfect for a luxurious reading nook.</p>
+                <button class="add-to-cart" data-name="Velvet Armchair" data-price="450.00">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="image 3.webp" alt="Minimalist Floating Shelf">
+                <h3>Minimalist Floating Shelf</h3>
+                <p class="price">$75.00</p>
+                <p class="description">Sleek, invisible mounting system for contemporary storage.</p>
+                <button class="add-to-cart" data-name="Floating Shelf" data-price="75.00">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="image4.jpeg" alt="Solid Oak Dining Table">
+                <h3>Heritage Oak Table</h3>
+                <p class="price">$850.00</p>
+                <p class="description">Seats six. Hand-finished solid oak, built for generations.</p>
+                <button class="add-to-cart" data-name="Heritage Oak Table" data-price="850.00">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="image5.webp" alt="Industrial Metal Stool">
+                <h3>Industrial Counter Stool</h3>
+                <p class="price">$99.00</p>
+                <p class="description">Durable powder-coated metal, ideal for kitchen islands.</p>
+                <button class="add-to-cart" data-name="Industrial Stool" data-price="99.00">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="image6.webp" alt="Scandinavian Bed Frame">
+                <h3>Woven Rattan Bed</h3>
+                <p class="price">$799.00</p>
+                <p class="description">Scandinavian style with a unique woven rattan headboard (Queen).</p>
+                <button class="add-to-cart" data-name="Woven Rattan Bed" data-price="799.00">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="image7.jpeg" alt="Ergonomic Office Chair">
+                <h3>Executive Ergonomic Chair</h3>
+                <p class="price">$320.00</p>
+                <p class="description">High-back mesh support designed for all-day comfort.</p>
+                <button class="add-to-cart" data-name="Executive Chair" data-price="320.00">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="image8.webp" alt="Rustic Coffee Table">
+                <h3>The Foundry Coffee Table</h3>
+                <p class="price">$399.00</p>
+                <p class="description">Reclaimed pine top with heavy-duty black iron legs.</p>
+                <button class="add-to-cart" data-name="Foundry Coffee Table" data-price="399.00">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="image9.jpg" alt="Geometric Pattern Rug">
+                <h3>Marrakech Pattern Rug</h3>
+                <p class="price">$250.00</p>
+                <p class="description">Soft, durable wool blend with a striking geometric pattern.</p>
+                <button class="add-to-cart" data-name="Marrakech Rug" data-price="250.00">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="image10.webp" alt="Modern Pendant Light">
+                <h3>Cone Brass Pendant</h3>
+                <p class="price">$120.00</p>
+                <p class="description">Matte black finish with a sleek, polished brass interior.</p>
+                <button class="add-to-cart" data-name="Cone Brass Pendant" data-price="120.00">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>FurniCo. &copy; 2025 | Timeless Furnishings for Modern Homes.</p>
+    </footer>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('login-modal').style.display='none'" class="close-btn">&times;</span>
+            <h2>Account Login</h2>
+            <form>
+                <input type="text" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="cta-button">Log In</button>
+            </form>
+            <p>New customer? <a href="#" onclick="showRegister()">Register here</a></p>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('register-modal').style.display='none'" class="close-btn">&times;</span>
+            <h2>Create Account</h2>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="cta-button">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('cart-modal').style.display='none'" class="close-btn">&times;</span>
+            <h2>Your Shopping Cart</h2>
+            <div id="cart-items">
+                </div>
+            <div class="cart-summary">
+                <p>Subtotal: <span id="cart-total">$0.00</span></p>
+                <button class="cta-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // GLOBAL CART ARRAY: Stores all items currently added
+        let cart = [];
+
+        // --- Modal Control Functions ---
+        function showRegister() {
+            document.getElementById('login-modal').style.display = 'none';
+            document.getElementById('register-modal').style.display = 'block';
+        }
+
+        function openCartModal() {
+            renderCart(); // Render cart contents before opening
+            document.getElementById('cart-modal').style.display = 'block';
+        }
+        
+        // --- Core Cart Logic ---
+
+        function updateCartCount() {
+            // Calculates the total number of items (quantities added up)
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+            return totalItems;
+        }
+
+        function addToCart(productName, productPrice) {
+            const price = parseFloat(productPrice);
+
+            // Check if the item already exists in the cart
+            const existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += 1; // Increment quantity if found
+            } else {
+                cart.push({ name: productName, price: price, quantity: 1 }); // Add new item if not found
+            }
+
+            updateCartCount();
+        }
+
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            let totalPrice = 0;
+            
+            // Clear previous content before re-rendering
+            cartItemsContainer.innerHTML = ''; 
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center;">Your cart is currently empty. Start shopping!</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+
+                    // Create the HTML element for the cart item row
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item-row');
+                    itemElement.innerHTML = `
+                        <p class="cart-item-name">${item.name} (${item.quantity}x)</p>
+                        <p class="cart-item-price">$${itemTotal.toFixed(2)}</p>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+            }
+
+            // Update the total price display
+            cartTotalElement.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+
+        // --- Event Listeners Initialization ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get product data from the button's data attributes
+                    const name = button.getAttribute('data-name');
+                    const price = button.getAttribute('data-price');
+                    
+                    addToCart(name, price);
+
+                    // Provide user feedback
+                    button.textContent = 'Added!';
+                    button.disabled = true;
+
+                    // Reset button text after short delay
+                    setTimeout(() => {
+                        button.textContent = 'Add to Cart';
+                        button.disabled = false;
+                    }, 800);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
